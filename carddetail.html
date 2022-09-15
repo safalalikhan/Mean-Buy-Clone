@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+form{
+
+height: 20px;
+margin-left: 30px;
+justify-content: center;
+}
+#select{height: 30px;
+width: 25%;}
+#add1{height: 30px;
+width: 25%}
+#add2{height: 30px;
+width: 25%}
+#city{height: 30px;
+width: 25%}
+#pincode{height: 30px;
+width: 25%}
+#paynow{width:20%;background-color:grey ;
+    height:25px ;
+    color:white;border: none;}
+    </style>
+</head>
+<body>
+    <P> Inter Addess Detailse</P>
+    <form>
+    <input  id="add1" type="text" placeholder="Address 1"/>
+       <input id="add2"  type="text" placeholder="Address 2"/>
+       <br>
+       <select id="select">
+<option value="---">Select State</option>
+<option >Andhra Pradesh</option>
+<option >Arunachal Pradesh</option>
+<option > Assam</option>
+<option >Bihar</option>
+<option >Goa</option>
+<option >Gujrat</option>
+<option >Hryana</option>
+<option >Himachal pradesh </option>
+<option >Jharkhand </option>
+<option >Karnataka</option>
+<option >Kerala</option>
+<option >Madhya Pradesh</option>
+<option >Maharashtra</option>
+<option >Manipur</option>
+<option >Tripura </option>
+<option >Uttrakhand</option>
+<option >uttar Pradesh</option>
+<option >West bangal</option>
+ </select>
+ <input  id="city" type="text" placeholder="City"/>
+ <br>
+   <input id="select" placeholder="India"/> 
+     <input id="pincode" type="Number" placeholder="Pincode"/> 
+     
+    
+     <h4>Inter card details</h4>
+     <input id="select" type="number" placeholder="card number"/>
+     <input type="number" placeholder="ccv"/>
+     <br>
+     <p>card expiry date</p>
+     <input type="date" placeholder="card expiry date"/>
+     <br>
+     <br>
+     <input type ="submit" value="PAY NOW!"/ id="paynow">
+    </form>
+</body>
+</html>
+<script>
+document.querySelector("form").addEventListener("submit",myfun)
+var final=JSON.parse(localStorage.getItem("success")) || []
+function myfun(){
+    event.preventDefault()
+     var obj={
+         address1:document.querySelector("#add1").value,
+         address2:document.querySelector("#add2").value,
+         state:document.querySelector("#select").value,
+         city:document.querySelector("#city").value,
+         pincode:document.querySelector("#pincode").value,
+ } 
+ final.push(obj)
+ localStorage.setItem("success",JSON.stringify(final))
+ alert("payment successfull")
+}
+
+
+</script>

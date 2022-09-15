@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #home{
+        display: flex;
+    justify-content: space-between;      
+    }
+    #last{display: flex;
+     
+     gap:40px;
+     margin: 30px;        
+    }
+    #navbar{display: flex;
+            justify-content: left;
+            
+            height:40px;
+            margin: 20px; 
+            gap:30px;
+        } 
+        #navbar a{font-size: 25px;}
+        form{margin-left: 80px;
+        font-size:50px;
+        height: 70px;
+    }
+    #name{width: 70%;
+   height:30px;
+   }
+   #pass{width: 70%;
+   height:30px;}
+   #gender{width: 70%;
+   height:30px;}
+   #email{width: 70%;
+   height:30px;}
+   #mob{width: 70%;
+   height:30px;}
+   #login{width:70%;
+height:30px;background-color: green; color:white}
+
+    </style>
+</head>
+<body>
+    <div id="home">
+        <div>
+            <div>
+              <img src="https://meanbuyassets.s3.ap-south-1.amazonaws.com/baselogo.png"/>  
+              <input placeholder="search"/>  
+            </div>
+            
+        </div>
+        <div>
+           <div id="last"><div>
+               
+           
+             <a href="feedback.html"> Feeedback </a>
+             
+              <a href="Delivery.html">Delivery Info</a>
+           </div>
+               <div><a href="login.html">LOGIN</a>
+                <a href="signup.html">SIGN UP</a>
+            </div>
+           
+           </div>
+           <p>WELCOME GEUST</p> 
+        </div>
+    </div>
+    
+    <div id="navbar">
+        <div><a href="Categories.html">Categories</a></div>
+        <div><a href="BestDeals.html">Best Deals</a></div>
+        
+        <div><a href="Trending.html">Trending</a></div>
+        <div><a href="newarrivals.html">New Arrivals</a></div>
+        
+        </div> 
+    <form>
+
+<input type="text"  id="name"  placeholder="enter name"/>
+<br>
+<input type="number"  id="pass"  placeholder="enter password"/>
+<br>
+<select id="gender" >
+<option value="male">male</option>
+<option value="female">female</option>
+     
+</select>
+<br>
+<input type="email"  id="email"  placeholder="enter email"/>
+<br>
+<input type="text"  id="mob"  placeholder="enter mobile number"/>
+<br>
+<input id="login" type="submit"  value="SIGNUP"/>
+    </form>
+</body>
+</html>
+<script>
+var submit=JSON.parse(localStorage.getItem("sign")) || []
+document.querySelector("form").addEventListener("submit",myfun)
+function myfun(){
+    event.preventDefault();
+    var obj={
+       name:document.querySelector("#name").value,
+       pass:document.querySelector("#pass").value,
+       gender:document.querySelector("#gender").value,
+        email:document.querySelector("#email").value,
+        mob:document.querySelector("#mob").value,
+    }
+    submit.push(obj)
+    localStorage.setItem("sign",JSON.stringify(submit))
+    alert("login successfull")
+}
+
+</script>
